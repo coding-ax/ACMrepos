@@ -1,0 +1,73 @@
+
+//四舍五入：
+double round(double number, unsigned int bits) {
+    stringstream ss;
+    ss << fixed << setprecision(bits) << number;
+    ss >> number;
+    return number;
+}
+//素数判定（紫书版本）
+bool isPrime(long long x){
+    if(x<=1)return false;
+    int m=floor(sqrt(x)+0.5);
+    for(int i=2;i<=m;i++){
+        if(x%i==0)return false;
+    }
+    return true;
+}
+//快速幂：
+typedef long long LL;   //  视数据大小的情况而定
+LL powerMod(LL x, LL n, LL m)
+{
+    LL res = 1;
+    while (n > 0){
+        if  (n & 1) //  判断是否为奇数，若是则true
+            res = (res * x) % m;
+        x = (x * x) % m;
+        n >>= 1;    //  相当于n /= 2;
+    }
+    return res;
+}
+
+//全排列（递归枚举）（紫书版本）
+void print_permutation(int n,int *a,int cur){
+    if(cur==n){//递归收拢条件：
+        for(int i=1;i<=n;i++)
+         printf("%d ",a[i]);
+        printf("\n");
+    }
+    else {//递归开始的情况
+        for(int i=1;i<=n;i++){
+            bool ok=true;
+            //查看当前位置是否已经加入数组
+            for(int j=1;j<=cur;j++){
+                if(i==a[j]){
+                    ok=false;
+                    break;
+                }
+            }
+            if(ok){
+                a[cur+1]=i;
+                print_permutation(n,a,cur+1);
+            }
+
+        }
+    }
+}
+
+//全排列（STL枚举）（紫书版本）
+void print_permutation(int n,int *a){
+    for(int i=1;i<=n;i++){
+        //cin>>a[i];
+        a[i]=i;
+    }
+    sort(a+1,a+n+1);
+    do
+    {
+        for(int i=1;i<=n;i++){
+            cout<<a[i]<<" ";
+        }
+        cout<<endl;
+    } while (next_permutation(a+1,a+n+1));
+
+}
