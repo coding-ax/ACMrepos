@@ -33,7 +33,7 @@ void findAllPrimeNum(long long num){
                 vec.push_back(num);
                 return ;
             }
-            if(num==2){
+            if(num==2){//sadsa
                  // cout<<num<<" ";
                   vec.push_back(num);
                 return ;
