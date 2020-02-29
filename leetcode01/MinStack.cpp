@@ -40,6 +40,7 @@ public:
     }
 
     void pop() {
+        if(topIndex>-1){
         if(minIndex==topIndex){
             int temp=INF;
             for(int i=0;i<=topIndex;i++){
@@ -49,11 +50,13 @@ public:
                 }
             }
         }
-        topIndex--;
-        if(topIndex==-1){
-            minIndex=-1;
-        }
+         topIndex--;
         VecStack.pop_back();
+        }
+       else{
+           return;
+       }
+      
     }
 
     int top() {
