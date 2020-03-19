@@ -65,7 +65,7 @@ void merge_sort(int *a,int low,int  high){
 }
 int main()
 {
-    ios::sync_with_stdio(false);
+    // ios::sync_with_stdio(false);
     int a[] = {5, 6, 7, 1, 2, 8, 6, 7, 2, 6, 48, 9};
     merge_sort(a, 0, sizeof(a) / sizeof(a[0])-1);
     //  cout << "here" << endl;
