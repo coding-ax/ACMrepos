@@ -90,6 +90,7 @@ int main()
         return 0;
     }
     outfile << ans;
+    outfile.close();
     system("pause");
     return 0;
 }
