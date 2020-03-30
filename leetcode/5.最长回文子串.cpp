@@ -54,6 +54,8 @@ public:
         // //cout << maxStart << " " << maxLen << endl;
         // return s.substr(maxStart,  maxLen);
 
+
+        //bacab 必须使用memset设置为false
         //动态规划加中心扩散
         const int len = s.length();
         if (len < 2)
@@ -63,11 +65,12 @@ public:
         int maxLen = 1,
             maxStart = 0;
         bool dp[len][len];
-        for (int right = 1; right < len; right++)
+        memset(dp, false, sizeof(dp));
+        for (int right =1; right < len; right++)
         {
             for (int left = 0; left < right; left++)
             {
-                if (s[left] == s[right] && (right - left <= 2 || dp[left + 1][right - 1]))
+                if (s[left] == s[right] && (right - left <= 2 || dp[left + 1][right - 1]==true))
                 {
                     dp[left][right] = true;
                     if (right - left + 1 > maxLen)
