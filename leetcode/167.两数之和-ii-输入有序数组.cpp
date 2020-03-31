@@ -10,26 +10,17 @@ class Solution
 public:
     vector<int> twoSum(vector<int> &numbers, int target)
     {
-        vector<int> ans;
-        if (numbers.size() < 2)
-        {
-            return ans;
-        }
         int left = 0, right = numbers.size() - 1;
         while (left < right)
         {
             //小于target，说明left偏左
-            // cout << "left:" << left << " "
-            //      << "right:" << right << endl;
             if (numbers[left] + numbers[right] < target)
             {
                 left++;
             }
             else if (numbers[left] + numbers[right] == target)
             {
-                ans.push_back(left + 1);
-                ans.push_back(right + 1);
-                break;
+                return {left + 1, right + 1};
             }
             //大于target，说明right偏右
             else
@@ -37,7 +28,7 @@ public:
                 right--;
             }
         }
-        return ans;
+        return {-1, -1};
     }
 };
 // @lc code=end
