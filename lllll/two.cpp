@@ -33,7 +33,6 @@ int Fun(int n)
     int Second = Fun(n - 2);
 
     int iSum = First + Second;
-    cout << iSum << endl;
     return iSum;
 }
 int main()
